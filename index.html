@@ -64,14 +64,14 @@
             padding-bottom: 1rem;
             border-bottom: 1px solid var(--border-color);
             position: relative;
-            padding-top: 50px; /* Added space for the theme toggle */
+            padding-top: 50px;
         }
 
         h1 {
             color: var(--primary-color);
             margin-bottom: 1rem;
             font-size: 1.5rem;
-            padding: 0 20px; /* Added padding to prevent overflow */
+            padding: 0 20px;
             word-wrap: break-word;
         }
 
@@ -248,43 +248,6 @@
             transform: translateY(-3px);
         }
 
-        /* Loading page styles */
-        .loading-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #000;
-            color: white;
-            text-align: center;
-        }
-
-        .loading-spinner {
-            border: 5px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top: 5px solid #0078d7;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            margin-bottom: 20px;
-        }
-
-        .loading-text {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .loading-powered {
-            font-size: 16px;
-            opacity: 0.8;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
         @media (max-width: 768px) {
             .container {
                 padding: 1rem;
@@ -293,7 +256,7 @@
             }
 
             header {
-                padding-top: 40px; /* Reduced space for mobile */
+                padding-top: 40px;
                 margin-bottom: 1.5rem;
             }
 
@@ -350,7 +313,6 @@
             }
         }
 
-        /* Animation classes */
         .fade-in {
             animation: fadeIn 0.5s ease-in;
         }
@@ -394,7 +356,7 @@
                     <li>
                         <div class="link-item">
                             <div class="link-text">
-                                <a href="redirect.html?url=https://www.microsoft.com/en-us/software-download/" class="link-url" target="_blank">Microsoft Software Download</a>
+                                <a href="https://www.microsoft.com/en-us/software-download/" class="link-url" target="_blank">Microsoft Software Download</a>
                                 <span class="link-description">– Official Windows downloads</span>
                             </div>
                             <button class="copy-btn" data-url="https://www.microsoft.com/en-us/software-download/">
@@ -405,7 +367,7 @@
                     <li>
                         <div class="link-item">
                             <div class="link-text">
-                                <a href="redirect.html?url=https://massgrave.dev/" class="link-url" target="_blank">Massgrave</a>
+                                <a href="https://massgrave.dev/" class="link-url" target="_blank">Massgrave</a>
                                 <span class="link-description">– Windows & Office downloads</span>
                             </div>
                             <button class="copy-btn" data-url="https://massgrave.dev/">
@@ -416,7 +378,7 @@
                     <li>
                         <div class="link-item">
                             <div class="link-text">
-                                <a href="redirect.html?url=https://os.click/en" class="link-url" target="_blank">OS.Click</a>
+                                <a href="https://os.click/en" class="link-url" target="_blank">OS.Click</a>
                                 <span class="link-description">– Multiple OS downloads</span>
                             </div>
                             <button class="copy-btn" data-url="https://os.click/en">
@@ -433,7 +395,7 @@
                     <li>
                         <div class="link-item">
                             <div class="link-text">
-                                <a href="redirect.html?url=https://github.com/memstechtips/WIMUtil" class="link-url" target="_blank">WIMUtil</a>
+                                <a href="https://github.com/memstechtips/WIMUtil" class="link-url" target="_blank">WIMUtil</a>
                                 <span class="link-description">– Advanced ISO customization</span>
                             </div>
                             <button class="copy-btn" data-url="https://github.com/memstechtips/WIMUtil">
@@ -444,7 +406,7 @@
                     <li>
                         <div class="link-item">
                             <div class="link-text">
-                                <a href="redirect.html?url=https://github.com/memstechtips/UnattendedWinstall" class="link-url" target="_blank">UnattendedWinstall</a>
+                                <a href="https://github.com/memstechtips/UnattendedWinstall" class="link-url" target="_blank">UnattendedWinstall</a>
                                 <span class="link-description">– Automated installation</span>
                             </div>
                             <button class="copy-btn" data-url="https://github.com/memstechtips/UnattendedWinstall">
@@ -461,7 +423,7 @@
                     <li>
                         <div class="link-item">
                             <div class="link-text">
-                                <a href="redirect.html?url=https://massgrave.dev/" class="link-url" target="_blank">Massgrave</a>
+                                <a href="https://massgrave.dev/" class="link-url" target="_blank">Massgrave</a>
                                 <span class="link-description">– Windows & Office activator</span>
                             </div>
                             <button class="copy-btn" data-url="https://massgrave.dev/">
@@ -510,7 +472,6 @@
                 
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') {
-                    // If it's the back to top button, scroll to top
                     window.scrollTo({
                         top: 0,
                         behavior: 'smooth'
@@ -544,7 +505,6 @@
             button.addEventListener('click', function() {
                 const url = this.getAttribute('data-url');
                 navigator.clipboard.writeText(url).then(() => {
-                    // Change icon temporarily to show success
                     const icon = this.querySelector('i');
                     icon.classList.remove('fa-copy');
                     icon.classList.add('fa-check');
