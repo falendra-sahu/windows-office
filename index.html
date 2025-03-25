@@ -3,136 +3,573 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Microsoft Windows & Office Download and Activation</title>
+    <title>Windows & Office Tools</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            /* Light mode variables */
+            --primary-color: #0078d7;
+            --secondary-color: #333;
+            --background-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --text-color: #333;
+            --border-color: #eee;
+            --border-radius: 16px;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Dark mode variables */
+        .dark-mode {
+            --primary-color: #1e90ff;
+            --secondary-color: #e0e0e0;
+            --background-color: #000000;
+            --card-bg: #121212;
+            --text-color: #f0f0f0;
+            --border-color: #333;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
             padding: 0;
-            background-color: #f5f5f5;
-            color: #333;
-        }
-        header {
-            background-color: #003b6f;
-            color: #ffffff;
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        header h1 {
             margin: 0;
-            font-size: 2.5em;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
+
         .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            background-color: var(--card-bg);
+            box-shadow: var(--box-shadow);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
         }
-        .card {
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin-bottom: 20px;
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            padding-top: 50px; /* Added space for the theme toggle */
         }
-        .card h2 {
-            margin-top: 0;
-            font-size: 1.8em;
-            border-bottom: 3px solid #003b6f;
-            padding-bottom: 10px;
+
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            padding: 0 20px; /* Added padding to prevent overflow */
+            word-wrap: break-word;
         }
-        .card h3 {
-            color: #003b6f;
-            font-size: 1.4em;
+
+        h2 {
+            color: var(--primary-color);
+            margin: 1rem 0;
+            font-size: 1.3rem;
         }
-        ul {
-            list-style: none;
-            padding: 0;
+
+        .theme-toggle-wrapper {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
         }
-        li {
-            margin-bottom: 10px;
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
-        a {
-            color: #003b6f;
+
+        .theme-toggle:hover {
+            transform: rotate(30deg);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .nav-link {
+            color: var(--primary-color);
             text-decoration: none;
-            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            font-size: 0.95rem;
         }
-        a:hover {
+
+        .nav-link:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 1rem;
+        }
+
+        li {
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        li::before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0.5rem 0;
+        }
+
+        .link-text {
+            flex-grow: 1;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            word-break: break-word;
+        }
+
+        .link-url {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .link-url:hover {
             text-decoration: underline;
         }
-        code {
-            background-color: #f1f1f1;
-            padding: 4px 6px;
-            border-radius: 4px;
-            font-size: 0.95em;
+
+        .link-description {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            margin-left: 0.5rem;
+            opacity: 0.8;
         }
-        .footer {
+
+        .copy-btn {
+            background: none;
+            border: none;
+            color: var(--secondary-color);
+            cursor: pointer;
+            margin-left: 0.5rem;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            opacity: 0.7;
+            flex-shrink: 0;
+        }
+
+        .copy-btn:hover {
+            color: var(--primary-color);
+            opacity: 1;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: var(--box-shadow);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: #005fa3;
+            transform: translateY(-3px);
+        }
+
+        /* Loading page styles */
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #000;
+            color: white;
             text-align: center;
-            margin-top: 30px;
-            padding: 10px;
-            background-color: #e0e0e0;
-            border-top: 1px solid #ddd;
-            font-style: italic;
-            color: #666;
+        }
+
+        .loading-spinner {
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 5px solid #0078d7;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        .loading-text {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .loading-powered {
+            font-size: 16px;
+            opacity: 0.8;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+                margin: 1rem;
+                border-radius: 12px;
+            }
+
+            header {
+                padding-top: 40px; /* Reduced space for mobile */
+                margin-bottom: 1.5rem;
+            }
+
+            h1 {
+                font-size: 1.3rem;
+                padding: 0 15px;
+            }
+
+            h2 {
+                font-size: 1.1rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 0.5rem;
+            }
+
+            .nav-link {
+                padding: 0.5rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            section {
+                padding: 1rem;
+                margin: 1rem 0;
+            }
+
+            .theme-toggle {
+                width: 35px;
+                height: 35px;
+                font-size: 1.2rem;
+            }
+
+            .back-to-top {
+                bottom: 1rem;
+                right: 1rem;
+                width: 2.5rem;
+                height: 2.5rem;
+                font-size: 0.9rem;
+            }
+
+            .link-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .copy-btn {
+                margin-left: 0;
+                margin-top: 0.3rem;
+                align-self: flex-end;
+            }
+        }
+
+        /* Animation classes */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .slide-in {
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
     </style>
 </head>
 <body>
-
-    <header>
-        <h1>Microsoft Windows & Office Download and Activation</h1>
-    </header>
-
     <div class="container">
-
-        <div class="card">
-            <h2>Auto Clean Windows Installation</h2>
-            <ul>
-                <li><a href="https://github.com/memstechtips/UnattendedWinstall" target="_blank">GitHub - Unattended Windows Installation</a></li>
-                <li><a href="https://youtu.be/pDEZDD_gEbo?si=nCH3VGIU18hjci9p" target="_blank">Tutorial Video</a></li>
-            </ul>
+        <div class="theme-toggle-wrapper">
+            <button id="themeToggle" class="theme-toggle">
+                <i class="fas fa-sun"></i>
+            </button>
         </div>
 
-        <div class="card">
-            <h2>Download</h2>
-            <ul>
-                <li><a href="https://gravesoft.dev/download_windows" target="_blank">Gravesoft Windows Download</a></li>
-                <li><a href="https://www.microsoft.com/en-in/software-download" target="_blank">Microsoft Software Download</a></li>
-                <li><a href="https://getintopc.com/" target="_blank">Get Into PC</a></li>
-            </ul>
-        </div>
+        <header class="fade-in">
+            <h1>Windows & Office Tools</h1>
+            <div class="nav-links">
+                <a href="#download" class="nav-link"><i class="fas fa-download"></i> Download</a>
+                <a href="#create" class="nav-link"><i class="fas fa-cogs"></i> Create ISO</a>
+                <a href="#activate" class="nav-link"><i class="fas fa-key"></i> Activate</a>
+            </div>
+        </header>
 
-        <div class="card">
-            <h2>Direct Download Links</h2>
-            <h3>Windows</h3>
-            <ul>
-                <li><a href="https://www.microsoft.com/en-in/software-download/" target="_blank">All Windows Versions</a></li>
-                <li><a href="https://download.microsoft.com/download/1/E/6/1E6B4803-DD2A-49DF-8468-69C0E6E36218/7601.24214.180801-1700.win7sp1_ldr_escrow_CLIENT_ULTIMATE_x86FRE_en-us.iso" target="_blank">Windows 7 Ultimate 32-bit</a></li>
-                <li><a href="https://download.microsoft.com/download/5/1/9/5195A765-3A41-4A72-87D8-200D897CBE21/7601.24214.180801-1700.win7sp1_ldr_escrow_CLIENT_ULTIMATE_x64FRE_en-us.iso" target="_blank">Windows 7 Ultimate 64-bit</a></li>
-            </ul>
+        <main>
+            <section id="download" class="slide-in">
+                <h2><i class="fas fa-download"></i> Download</h2>
+                <ul>
+                    <li>
+                        <div class="link-item">
+                            <div class="link-text">
+                                <a href="redirect.html?url=https://www.microsoft.com/en-us/software-download/" class="link-url" target="_blank">Microsoft Software Download</a>
+                                <span class="link-description">– Official Windows downloads</span>
+                            </div>
+                            <button class="copy-btn" data-url="https://www.microsoft.com/en-us/software-download/">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="link-item">
+                            <div class="link-text">
+                                <a href="redirect.html?url=https://massgrave.dev/" class="link-url" target="_blank">Massgrave</a>
+                                <span class="link-description">– Windows & Office downloads</span>
+                            </div>
+                            <button class="copy-btn" data-url="https://massgrave.dev/">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="link-item">
+                            <div class="link-text">
+                                <a href="redirect.html?url=https://os.click/en" class="link-url" target="_blank">OS.Click</a>
+                                <span class="link-description">– Multiple OS downloads</span>
+                            </div>
+                            <button class="copy-btn" data-url="https://os.click/en">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </section>
 
-            <h3>Office</h3>
-            <ul>
-                <li><a href="https://officecdn.microsoft.com/db/492350F6-3A01-4F97-B9C0-C7C6DDF67D60/media/en-US/ProPlus2019Retail.img" target="_blank">Office 2019 ProPlus</a></li>
-                <li><a href="https://officecdn.microsoft.com/db/492350F6-3A01-4F97-B9C0-C7C6DDF67D60/media/en-US/O365BusinessRetail.img" target="_blank">Office 365 Business</a></li>
-                <li><a href="https://officecdn.microsoft.com/db/492350F6-3A01-4F97-B9C0-C7C6DDF67D60/media/en-US/O365ProPlusRetail.img" target="_blank">Office 365 ProPlus</a></li>
-            </ul>
-        </div>
+            <section id="create" class="slide-in">
+                <h2><i class="fas fa-cogs"></i> Create ISO</h2>
+                <ul>
+                    <li>
+                        <div class="link-item">
+                            <div class="link-text">
+                                <a href="redirect.html?url=https://github.com/memstechtips/WIMUtil" class="link-url" target="_blank">WIMUtil</a>
+                                <span class="link-description">– Advanced ISO customization</span>
+                            </div>
+                            <button class="copy-btn" data-url="https://github.com/memstechtips/WIMUtil">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="link-item">
+                            <div class="link-text">
+                                <a href="redirect.html?url=https://github.com/memstechtips/UnattendedWinstall" class="link-url" target="_blank">UnattendedWinstall</a>
+                                <span class="link-description">– Automated installation</span>
+                            </div>
+                            <button class="copy-btn" data-url="https://github.com/memstechtips/UnattendedWinstall">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </section>
 
-        <div class="card">
-            <h2>Activate</h2>
-            <ul>
-                <li><code>irm https://get.activated.win | iex</code> (Paste this into PowerShell and choose what you need)</li>
-                <li><a href="https://github.com/massgravel/Microsoft-Activation-Scripts" target="_blank">MassGravel Activation Scripts</a></li>
-                <li><a href="https://github.com/massgravel" target="_blank">MassGravel GitHub</a></li>
-            </ul>
-        </div>
-
+            <section id="activate" class="slide-in">
+                <h2><i class="fas fa-key"></i> Activate</h2>
+                <ul>
+                    <li>
+                        <div class="link-item">
+                            <div class="link-text">
+                                <a href="redirect.html?url=https://massgrave.dev/" class="link-url" target="_blank">Massgrave</a>
+                                <span class="link-description">– Windows & Office activator</span>
+                            </div>
+                            <button class="copy-btn" data-url="https://massgrave.dev/">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </main>
     </div>
 
-    <div class="footer">
-        <p>F A L E N D R A ♡⋆.˚🦋༘⋆</p>
-    </div>
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
 
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        // Check for saved theme preference or use preferred color scheme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.body.classList.add('dark-mode');
+            themeIcon.classList.replace('fa-sun', 'fa-moon');
+        }
+        
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') {
+                    // If it's the back to top button, scroll to top
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                    return;
+                }
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Back to top button visibility
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        // Copy URL functionality
+        document.querySelectorAll('.copy-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const url = this.getAttribute('data-url');
+                navigator.clipboard.writeText(url).then(() => {
+                    // Change icon temporarily to show success
+                    const icon = this.querySelector('i');
+                    icon.classList.remove('fa-copy');
+                    icon.classList.add('fa-check');
+                    
+                    setTimeout(() => {
+                        icon.classList.remove('fa-check');
+                        icon.classList.add('fa-copy');
+                    }, 1500);
+                });
+            });
+        });
+
+        // Add animation classes when elements come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
