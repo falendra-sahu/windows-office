@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            /* Light mode variables */
             --primary-color: #0078d7;
             --secondary-color: #333;
             --background-color: #f9f9f9;
@@ -17,17 +16,6 @@
             --border-radius: 16px;
             --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             --transition: all 0.3s ease;
-        }
-
-        /* Dark mode variables */
-        .dark-mode {
-            --primary-color: #1e90ff;
-            --secondary-color: #e0e0e0;
-            --background-color: #000000;
-            --card-bg: #121212;
-            --text-color: #f0f0f0;
-            --border-color: #333;
-            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
         }
 
         * {
@@ -43,7 +31,6 @@
             background-color: var(--background-color);
             padding: 0;
             margin: 0;
-            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .container {
@@ -55,7 +42,6 @@
             box-shadow: var(--box-shadow);
             margin-top: 2rem;
             margin-bottom: 2rem;
-            position: relative;
         }
 
         header {
@@ -63,8 +49,7 @@
             margin-bottom: 2rem;
             padding-bottom: 1rem;
             border-bottom: 1px solid var(--border-color);
-            position: relative;
-            padding-top: 50px;
+            padding-top: 20px;
         }
 
         h1 {
@@ -79,34 +64,6 @@
             color: var(--primary-color);
             margin: 1rem 0;
             font-size: 1.3rem;
-        }
-
-        .theme-toggle-wrapper {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            z-index: 10;
-        }
-
-        .theme-toggle {
-            background: none;
-            border: none;
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: var(--transition);
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background-color: var(--card-bg);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .theme-toggle:hover {
-            transform: rotate(30deg);
         }
 
         .nav-links {
@@ -256,7 +213,7 @@
             }
 
             header {
-                padding-top: 40px;
+                padding-top: 15px;
                 margin-bottom: 1.5rem;
             }
 
@@ -285,12 +242,6 @@
             section {
                 padding: 1rem;
                 margin: 1rem 0;
-            }
-
-            .theme-toggle {
-                width: 35px;
-                height: 35px;
-                font-size: 1.2rem;
             }
 
             .back-to-top {
@@ -334,12 +285,6 @@
 </head>
 <body>
     <div class="container">
-        <div class="theme-toggle-wrapper">
-            <button id="themeToggle" class="theme-toggle">
-                <i class="fas fa-sun"></i>
-            </button>
-        </div>
-
         <header class="fade-in">
             <h1>Windows & Office Tools</h1>
             <div class="nav-links">
@@ -395,10 +340,10 @@
                     <li>
                         <div class="link-item">
                             <div class="link-text">
-                                <a href="https://github.com/memstechtips/WIMUtil" class="link-url" target="_blank">WIMUtil</a>
-                                <span class="link-description">– Advanced ISO customization</span>
+                                <a href="https://github.com/memstechtips/Winhance" class="link-url" target="_blank">Winhance</a>
+                                <span class="link-description">– Windows ISO enhancement tool</span>
                             </div>
-                            <button class="copy-btn" data-url="https://github.com/memstechtips/WIMUtil">
+                            <button class="copy-btn" data-url="https://github.com/memstechtips/Winhance">
                                 <i class="fas fa-copy"></i>
                             </button>
                         </div>
@@ -410,6 +355,17 @@
                                 <span class="link-description">– Automated installation</span>
                             </div>
                             <button class="copy-btn" data-url="https://github.com/memstechtips/UnattendedWinstall">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="link-item">
+                            <div class="link-text">
+                                <a href="https://github.com/memstechtips/WIMUtil" class="link-url" target="_blank">WIMUtil</a>
+                                <span class="link-description">– Advanced ISO customization</span>
+                            </div>
+                            <button class="copy-btn" data-url="https://github.com/memstechtips/WIMUtil">
                                 <i class="fas fa-copy"></i>
                             </button>
                         </div>
@@ -441,30 +397,6 @@
     </a>
 
     <script>
-        // Theme toggle functionality
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = themeToggle.querySelector('i');
-        
-        // Check for saved theme preference or use preferred color scheme
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.body.classList.add('dark-mode');
-            themeIcon.classList.replace('fa-sun', 'fa-moon');
-        }
-        
-        // Toggle theme
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            
-            if (document.body.classList.contains('dark-mode')) {
-                themeIcon.classList.replace('fa-sun', 'fa-moon');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                themeIcon.classList.replace('fa-moon', 'fa-sun');
-                localStorage.setItem('theme', 'light');
-            }
-        });
-
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
